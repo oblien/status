@@ -18,14 +18,54 @@ status-website:
   cname: status.oblien.com
   # baseUrl: /your-repo-name
   logoUrl: https://oblien.com/ico/android-chrome-512x512.png
+  favicon: https://oblien.com/ico/android-chrome-512x512.png
   name: Oblien Status
-  introTitle: "**Oblien** is your real-time uptime monitor and status page, powered entirely by GitHub Actions."
-  introMessage: "This status page shows **real-time uptime and incidents** for all Oblien services. No extra server required — just GitHub Actions, Issues, and Pages. [**See our repo**](https://github.com/oblien/status)."
+  theme: dark
+  introTitle: "**Oblien** Service Status"
+  introMessage: "Real-time availability and incident tracking for all Oblien services."
   navbar:
     - title: Status
       href: /
     - title: GitHub
       href: https://github.com/oblien/status
+  css: |
+    :root {
+      --color-bg: #000000;
+      --color-text: #e0e0e0;
+      --color-heading: #ffffff;
+      --color-border: #1a1a1a;
+      --color-card-bg: #0a0a0a;
+    }
+    body {
+      background-color: #000000 !important;
+      color: #e0e0e0 !important;
+    }
+    nav {
+      background-color: #000000 !important;
+      border-bottom: 1px solid #1a1a1a !important;
+    }
+    .bar {
+      background-color: #0a0a0a !important;
+      border: 1px solid #1a1a1a !important;
+    }
+    .hero {
+      background-color: #000000 !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: #ffffff !important;
+    }
+    a {
+      color: #60a5fa !important;
+    }
+    footer {
+      background-color: #000000 !important;
+      border-top: 1px solid #1a1a1a !important;
+    }
+    .card, .site-status, .past-incidents {
+      background-color: #0a0a0a !important;
+      border: 1px solid #1a1a1a !important;
+      border-radius: 8px !important;
+    }
 
 
 # Upptime also supports notifications, assigning issues, and more
