@@ -1,6 +1,5 @@
-# Change these first
-owner: oblien # Your GitHub organization or username, where this repository lives
-repo: status # The name of this repository
+owner: oblien
+repo: status
 
 sites:
   - name: Oblien API
@@ -13,60 +12,6 @@ sites:
     url: https://edge.oblien.com/health
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
   cname: status.oblien.com
-  # baseUrl: /your-repo-name
   logoUrl: https://oblien.com/ico/android-chrome-512x512.png
-  favicon: https://oblien.com/ico/android-chrome-512x512.png
   name: Oblien Status
-  theme: dark
-  introTitle: "**Oblien** Service Status"
-  introMessage: "Real-time availability and incident tracking for all Oblien services."
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/oblien/status
-  css: |
-    :root {
-      --color-bg: #000000;
-      --color-text: #e0e0e0;
-      --color-heading: #ffffff;
-      --color-border: #1a1a1a;
-      --color-card-bg: #0a0a0a;
-    }
-    body {
-      background-color: #000000 !important;
-      color: #e0e0e0 !important;
-    }
-    nav {
-      background-color: #000000 !important;
-      border-bottom: 1px solid #1a1a1a !important;
-    }
-    .bar {
-      background-color: #0a0a0a !important;
-      border: 1px solid #1a1a1a !important;
-    }
-    .hero {
-      background-color: #000000 !important;
-    }
-    h1, h2, h3, h4, h5, h6 {
-      color: #ffffff !important;
-    }
-    a {
-      color: #60a5fa !important;
-    }
-    footer {
-      background-color: #000000 !important;
-      border-top: 1px solid #1a1a1a !important;
-    }
-    .card, .site-status, .past-incidents {
-      background-color: #0a0a0a !important;
-      border: 1px solid #1a1a1a !important;
-      border-radius: 8px !important;
-    }
-
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
