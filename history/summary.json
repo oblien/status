@@ -5,17 +5,20 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.oblien.com.ico",
     "slug": "oblien-api",
     "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "100.00%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
+    "uptime": "98.77%",
+    "uptimeDay": "77.76%",
+    "uptimeWeek": "96.82%",
+    "uptimeMonth": "98.77%",
+    "uptimeYear": "98.77%",
     "time": 575,
-    "timeDay": 417,
-    "timeWeek": 574,
+    "timeDay": 0,
+    "timeWeek": 570,
     "timeMonth": 575,
     "timeYear": 575,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-04-02": 165,
+      "2026-04-01": 155
+    }
   },
   {
     "name": "Workspace Gateway",
@@ -28,11 +31,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 554,
-    "timeDay": 429,
-    "timeWeek": 562,
-    "timeMonth": 554,
-    "timeYear": 554,
+    "time": 557,
+    "timeDay": 611,
+    "timeWeek": 577,
+    "timeMonth": 557,
+    "timeYear": 557,
     "dailyMinutesDown": {}
   },
   {
@@ -46,11 +49,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 554,
-    "timeDay": 415,
-    "timeWeek": 543,
-    "timeMonth": 554,
-    "timeYear": 554,
+    "time": 556,
+    "timeDay": 598,
+    "timeWeek": 550,
+    "timeMonth": 556,
+    "timeYear": 556,
     "dailyMinutesDown": {}
   },
   {
@@ -64,11 +67,11 @@
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 571,
-    "timeDay": 467,
-    "timeWeek": 595,
-    "timeMonth": 571,
-    "timeYear": 571,
+    "time": 574,
+    "timeDay": 657,
+    "timeWeek": 613,
+    "timeMonth": 574,
+    "timeYear": 574,
     "dailyMinutesDown": {}
   }
 ]
