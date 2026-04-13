@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oblien Status</title>
+  <link rel="icon" href="https://oblien.com/ico/android-chrome-512x512.png">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #000000;
+      --surface: #0a0a0a;
+      --border: #1a1a1a;
+      --text: #a0a0a0;
+      --text-bright: #e0e0e0;
+      --white: #ffffff;
+      --green: #00e676;
+      --red: #ff1744;
+      --yellow: #ffea00;
+      --accent: #60a5fa;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 1px solid var(--border);
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-brand img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-brand span { font-size: 16px; font-weight: 600; color: var(--white); }
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a { color: var(--text); font-size: 14px; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--white); text-decoration: none; }
+
+    /* ── Main ── */
+    .container { max-width: 960px; margin: 0 auto; padding: 0 40px; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .status-pill.up {
+      background: rgba(0, 230, 118, 0.08);
+      color: var(--green);
+      border: 1px solid rgba(0, 230, 118, 0.2);
+    }
+    .status-pill.down {
+      background: rgba(255, 23, 68, 0.08);
+      color: var(--red);
+      border: 1px solid rgba(255, 23, 68, 0.2);
+    }
+    .status-pill.degraded {
+      background: rgba(255, 234, 0, 0.08);
+      color: var(--yellow);
+      border: 1px solid rgba(255, 234, 0, 0.2);
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    .up .status-dot { background: var(--green); }
+    .down .status-dot { background: var(--red); }
+    .degraded .status-dot { background: var(--yellow); }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .hero h1 {
+      color: var(--white);
+      font-size: 28px;
+      font-weight: 600;
+      margin-top: 24px;
+    }
+    .hero p {
+      color: var(--text);
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    /* ── Services ── */
+    .services { padding: 0 0 60px; }
+    .services-header {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .service-card:hover { border-color: #2a2a2a; }
+
+    .service-info { display: flex; align-items: center; gap: 14px; }
+    .service-status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .service-status-dot.up { background: var(--green); box-shadow: 0 0 8px rgba(0, 230, 118, 0.4); }
+    .service-status-dot.down { background: var(--red); box-shadow: 0 0 8px rgba(255, 23, 68, 0.4); }
+    .service-status-dot.degraded { background: var(--yellow); box-shadow: 0 0 8px rgba(255, 234, 0, 0.4); }
+
+    .service-name { font-size: 15px; font-weight: 500; color: var(--text-bright); }
+
+    .service-meta {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .service-stat {
+      text-align: right;
+    }
+    .service-stat-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-bright);
+      font-variant-numeric: tabular-nums;
+    }
+    .service-stat-label {
+      font-size: 11px;
+      color: var(--text);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .service-badge {
+      font-size: 12px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .service-badge.up {
+      color: var(--green);
+      background: rgba(0, 230, 118, 0.08);
+    }
+    .service-badge.down {
+      color: var(--red);
+      background: rgba(255, 23, 68, 0.08);
+    }
+
+    /* ── Incidents ── */
+    .incidents {
+      padding: 0 0 60px;
+    }
+    .incidents-header {
+      font-size: 12px;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .incident-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 8px;
+    }
+    .incident-title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-bright);
+    }
+    .incident-time {
+      font-size: 12px;
+      color: var(--text);
+      margin-top: 4px;
+    }
+    .no-incidents {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 24px;
+      text-align: center;
+      color: var(--text);
+      font-size: 14px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 0;
+      text-align: center;
+      font-size: 12px;
+      color: #444;
+    }
+
+    /* ── Loading ── */
+    .loading {
+      text-align: center;
+      padding: 80px 0;
+      color: var(--text);
+    }
+    .spinner {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav, .container { padding-left: 20px; padding-right: 20px; }
+      .hero { padding: 40px 0 30px; }
+      .hero h1 { font-size: 22px; }
+      .service-meta { gap: 16px; }
+      .service-stat { display: none; }
+      .service-card { padding: 16px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-brand">
+      <img src="https://oblien.com/ico/android-chrome-512x512.png" alt="Oblien">
+      <span>Oblien Status</span>
+    </div>
+    <div class="nav-links">
+      <a href="https://oblien.com">Home</a>
+      <a href="https://github.com/oblien/status">GitHub</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="hero">
+      <div id="overall-status">
+        <div class="spinner"></div>
+        <p>Checking systems...</p>
+      </div>
+      <h1>Oblien Service Status</h1>
+      <p id="last-updated"></p>
+    </div>
+
+    <div class="services">
+      <div class="services-header">Services</div>
+      <div id="services-list">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading services...
+        </div>
+      </div>
+    </div>
+
+    <div class="incidents">
+      <div class="incidents-header">Recent Incidents</div>
+      <div id="incidents-list">
+        <div class="loading">
+          <div class="spinner"></div>
+          Loading incidents...
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      &copy; Oblien &middot; Automated monitoring
+    </div>
+  </footer>
+
+  <script>
+    const OWNER = 'oblien';
+    const REPO = 'status';
+    const API_BASE = `https://raw.githubusercontent.com/${OWNER}/${REPO}/master`;
+
+    async function fetchJSON(path) {
+      const res = await fetch(`${API_BASE}/${path}`);
+      if (!res.ok) throw new Error(`Failed to fetch ${path}`);
+      return res.json();
+    }
+
+    function formatResponseTime(ms) {
+      if (ms < 1000) return `${ms}ms`;
+      return `${(ms / 1000).toFixed(2)}s`;
+    }
+
+    function renderOverallStatus(services) {
+      const el = document.getElementById('overall-status');
+      const allUp = services.every(s => s.status === 'up');
+      const allDown = services.every(s => s.status === 'down');
+
+      let statusClass, statusText;
+      if (allUp) {
+        statusClass = 'up';
+        statusText = 'All systems operational';
+      } else if (allDown) {
+        statusClass = 'down';
+        statusText = 'Major outage';
+      } else {
+        statusClass = 'degraded';
+        statusText = 'Partial degradation';
+      }
+
+      el.innerHTML = `
+        <div class="status-pill ${statusClass}">
+          <span class="status-dot"></span>
+          ${statusText}
+        </div>
+      `;
+    }
+
+    function renderServices(services) {
+      const list = document.getElementById('services-list');
+      list.innerHTML = services.map(s => `
+        <div class="service-card">
+          <div class="service-info">
+            <div class="service-status-dot ${s.status}"></div>
+            <span class="service-name">${s.name}</span>
+          </div>
+          <div class="service-meta">
+            <div class="service-stat">
+              <div class="service-stat-value">${formatResponseTime(s.time)}</div>
+              <div class="service-stat-label">Response</div>
+            </div>
+            <div class="service-stat">
+              <div class="service-stat-value">${s.uptime}</div>
+              <div class="service-stat-label">Uptime</div>
+            </div>
+            <span class="service-badge ${s.status}">
+              ${s.status === 'up' ? 'Operational' : 'Down'}
+            </span>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    async function fetchIncidents() {
+      try {
+        const res = await fetch(
+          `https://api.github.com/repos/${OWNER}/${REPO}/issues?labels=status&state=all&per_page=5&sort=created&direction=desc`
+        );
+        if (!res.ok) return [];
+        return res.json();
+      } catch {
+        return [];
+      }
+    }
+
+    function renderIncidents(incidents) {
+      const list = document.getElementById('incidents-list');
+      const openIncidents = incidents.filter(i => !i.pull_request);
+
+      if (openIncidents.length === 0) {
+        list.innerHTML = `
+          <div class="no-incidents">
+            No recent incidents — all quiet.
+          </div>
+        `;
+        return;
+      }
+
+      list.innerHTML = openIncidents.map(i => {
+        const date = new Date(i.created_at);
+        const timeAgo = getTimeAgo(date);
+        const isOpen = i.state === 'open';
+        return `
+          <div class="incident-card">
+            <div class="incident-title">
+              ${isOpen ? '🔴' : '✅'} ${escapeHtml(i.title)}
+            </div>
+            <div class="incident-time">${timeAgo}</div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function getTimeAgo(date) {
+      const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
+      const intervals = [
+        { label: 'year', seconds: 31536000 },
+        { label: 'month', seconds: 2592000 },
+        { label: 'day', seconds: 86400 },
+        { label: 'hour', seconds: 3600 },
+        { label: 'minute', seconds: 60 },
+      ];
+      for (const interval of intervals) {
+        const count = Math.floor(seconds / interval.seconds);
+        if (count >= 1) return `${count} ${interval.label}${count > 1 ? 's' : ''} ago`;
+      }
+      return 'just now';
+    }
+
+    function escapeHtml(str) {
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    async function init() {
+      try {
+        const [services, incidents] = await Promise.all([
+          fetchJSON('history/summary.json'),
+          fetchIncidents()
+        ]);
+
+        renderOverallStatus(services);
+        renderServices(services);
+        renderIncidents(incidents);
+
+        document.getElementById('last-updated').textContent =
+          `Last checked: ${new Date().toLocaleString()}`;
+      } catch (err) {
+        document.getElementById('services-list').innerHTML = `
+          <div class="no-incidents">Failed to load status data.</div>
+        `;
+      }
+    }
+
+    init();
+    setInterval(init, 60000);
+  </script>
+</body>
+</html>
