@@ -6,6 +6,8 @@ on:
   repository_dispatch:
     types: [setup]
   workflow_dispatch:
+permissions:
+  contents: write
 jobs:
   release:
     name: Setup Upptime
@@ -13,9 +15,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.GH_PAT || github.token }}
       - name: Update response time
         uses: upptime/uptime-monitor@v1.41.0
         with:
