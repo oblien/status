@@ -43,19 +43,19 @@
     "url": "https://ssh.oblien.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/ssh.oblien.com.ico",
     "slug": "ssh-gateway",
-    "status": "down",
-    "uptime": "100.00%",
-    "uptimeDay": "99.99%",
-    "uptimeWeek": "100.00%",
-    "uptimeMonth": "100.00%",
-    "uptimeYear": "100.00%",
-    "time": 555,
-    "timeDay": 608,
-    "timeWeek": 608,
-    "timeMonth": 559,
-    "timeYear": 555,
+    "status": "up",
+    "uptime": "99.87%",
+    "uptimeDay": "92.45%",
+    "uptimeWeek": "98.92%",
+    "uptimeMonth": "99.75%",
+    "uptimeYear": "99.87%",
+    "time": 556,
+    "timeDay": 599,
+    "timeWeek": 606,
+    "timeMonth": 561,
+    "timeYear": 556,
     "dailyMinutesDown": {
-      "2026-05-10": 0
+      "2026-05-10": 109
     }
   },
   {
