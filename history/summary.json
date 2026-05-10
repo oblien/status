@@ -5,11 +5,11 @@
     "icon": "https://icons.duckduckgo.com/ip3/api.oblien.com.ico",
     "slug": "oblien-api",
     "status": "up",
-    "uptime": "98.78%",
+    "uptime": "98.79%",
     "uptimeDay": "100.00%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
-    "uptimeYear": "98.78%",
+    "uptimeYear": "98.79%",
     "time": 576,
     "timeDay": 643,
     "timeWeek": 642,
@@ -43,9 +43,9 @@
     "url": "https://ssh.oblien.com/health",
     "icon": "https://icons.duckduckgo.com/ip3/ssh.oblien.com.ico",
     "slug": "ssh-gateway",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
@@ -54,7 +54,9 @@
     "timeWeek": 608,
     "timeMonth": 559,
     "timeYear": 555,
-    "dailyMinutesDown": {}
+    "dailyMinutesDown": {
+      "2026-05-10": 0
+    }
   },
   {
     "name": "Edge Network",
